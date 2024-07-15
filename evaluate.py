@@ -123,9 +123,9 @@ def evaluate(args,data_loader):
             # plt.plot(estimate_source.cpu().numpy()[0][2],linewidth=0.4)
             # plt.show()
 
-            # cc.append(torch.mean(best_channel_permutation(padded_source, estimate_source)).cpu().numpy())
+            cc.append(torch.mean(best_channel_permutation(padded_source, estimate_source)).cpu().numpy())
             # print('cc,',np.corrcoef(estimate_source[0][0].cpu().numpy(),padded_source[0][0].cpu().numpy())[0,1])
-            # print('cc,',torch.mean(best_channel_permutation(padded_source, estimate_source)).cpu().numpy())
+            print('cc,',torch.mean(best_channel_permutation(padded_source, estimate_source)).cpu().numpy())
 
             loss, max_snr, estimate_source, reorder_estimate_source = \
                 cal_loss(padded_source, estimate_source, mixture_lengths)
@@ -154,13 +154,13 @@ def evaluate(args,data_loader):
             # mix2 = mix2 / maxval
             # mix3 = est[0][2] - mean0
             # mix3 = mix3 / maxval
-            print('cc,',np.corrcoef(mix1,padded_source[0][0].cpu().numpy())[0,1])
+            # print('cc,',np.corrcoef(mix1,padded_source[0][0].cpu().numpy())[0,1])
             # print(np.mean(mix1))
             # print(np.mean(padded_source[0][0].cpu().detach().numpy()))
             nCC = np.corrcoef(mix1,padded_source[0][0].cpu().numpy())[0,1]
             # if nCC < 0:
             #     nCC = - nCC
-            cc.append(nCC)
+            # cc.append(nCC)
 
             # print(correlation_coef(torch.tensor(mix1).to(device),padded_source[0][0]))
             # print(np.corrcoef(mix1,padded_source[0][1].cpu().numpy())[0,1])
@@ -173,13 +173,13 @@ def evaluate(args,data_loader):
             # print(correlation_coef(torch.tensor(mix3).to(device),padded_source[0][2]))
 
             # if nCC<0:
-            plt.plot(mix1, linewidth=0.4)
-            plt.title('<0')
-            plt.show()
-            plt.plot(mix2,linewidth=0.4)
-            plt.show()
-            plt.plot(mix3,linewidth=0.4)
-            plt.show()
+            # plt.plot(mix1, linewidth=0.4)
+            # plt.title('<0')
+            # plt.show()
+            # plt.plot(mix2,linewidth=0.4)
+            # plt.show()
+            # plt.plot(mix3,linewidth=0.4)
+            # plt.show()
 
             # plt.plot(mix3,linewidth=0.4)
             # plt.show()
@@ -197,8 +197,8 @@ def evaluate(args,data_loader):
                 # plt.show()
                 # plt.plot(padded_source[0][2].cpu().detach().numpy(),linewidth=0.4,color='red')
                 # plt.show()
-            plt.plot(padded_mixture[0].cpu().detach().numpy(),linewidth=0.4,color='orange')
-            plt.show()
+            # plt.plot(padded_mixture[0].cpu().detach().numpy(),linewidth=0.4,color='orange')
+            # plt.show()
 
             # plt.plot(padded_source[0][2].cpu().detach().numpy(),linewidth=0.4,color='red')
             # plt.show()
